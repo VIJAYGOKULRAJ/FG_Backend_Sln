@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="IRepository\" />
     <Folder Include="Validator\" />
     <Folder Include="Repository\" />
   </ItemGroup>
