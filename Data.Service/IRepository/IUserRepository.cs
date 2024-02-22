@@ -9,10 +9,7 @@ namespace Data.Service.IRepository
 {
     public interface IUserRepository
     {
-        Task<User> CheckLoginCredentials(UserLoginView model);
-        User GetUserByEmail(string email);
-
-        bool VerifyPassword(string enteredPassword, string storedPasswordHash);
+        
     }
 
 }

@@ -13,6 +13,7 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("connection"), b =>
         b.MigrationsAssembly("Data.SQL")));
 builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAccountRepository, AccountRepository>();
 // Add Swagger services
 builder.Services.AddSwaggerGen(c =>
 {
