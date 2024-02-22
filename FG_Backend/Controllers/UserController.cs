@@ -1,5 +1,4 @@
 ﻿using Data.Service.IRepository;
-using Domain.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,29 +9,18 @@ namespace FG_Backend.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserRepository _userRepository;
-        public UserController(IUserRepository userRepository)
+        private readonly IAccountRepository _accountRepository;
+
+        public UserController(IUserRepository userRepository, IAccountRepository accountRepository)
         {
             _userRepository = userRepository;
+            _accountRepository = accountRepository;
         }
-        [HttpPost]
-        public async Task<IActionResult> CreateUser(UserLoginView model)
+        [HttpGet("{id}")]
+        public IActionResult GetById(string id)
         {
-            if (ModelState.IsValid)
-            {
-                var user = _userRepository.GetUserByEmail(model.Username);
-                if (user != null && _userRepository.VerifyPassword(model.Password, user.Password))
-                {
-                    return Ok(user);
-                } 
-                else
-                {
-
-                    return BadRequest("Invalid username or password");
-                }
-            }
-
-            return BadRequest(ModelState);
+            var user = _accountRepository.GetUserById(id);
+            return Ok(user);
         }
-
     }
 }
