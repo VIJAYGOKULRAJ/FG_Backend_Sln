@@ -19,14 +19,14 @@ namespace FG_Backend.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await _userRepository.CheckLoginCredentials(model);
-                if (user != null)
+                var user = _userRepository.GetUserByEmail(model.Username);
+                if (user != null && _userRepository.VerifyPassword(model.Password, user.Password))
                 {
-                    return Ok(user);  // Assuming you want to return the user upon successful login
-                }
+                    return Ok(user);
+                } 
                 else
                 {
-                    // Invalid username or password
+
                     return BadRequest("Invalid username or password");
                 }
             }
