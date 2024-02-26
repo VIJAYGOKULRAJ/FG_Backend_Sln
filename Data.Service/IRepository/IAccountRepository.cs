@@ -12,6 +12,7 @@ namespace Data.Service.IRepository
         Task<User> CheckLoginCredentials(UserLoginView model);
         User GetUserByEmail(string email);
         User GetUserById(string id);
+       
 
     }
 }

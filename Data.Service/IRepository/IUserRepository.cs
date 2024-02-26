@@ -9,7 +9,7 @@ namespace Data.Service.IRepository
 {
     public interface IUserRepository
     {
-        
+        string Edit(string id , UserUpdateDTO userUpdateDTO);
     }
 
 }
