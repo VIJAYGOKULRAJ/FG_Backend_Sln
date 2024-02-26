@@ -282,6 +282,42 @@ namespace Domain.Models
         [DisplayName("New Password Again")]
         public string NewPasswordConfirm { get; set; }
     }
+    public class UserUpdateDTO
+    {
+        [Required]
+        [StringLength(100)]
+        [DisplayName("First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(100)]
+        [DisplayName("Last Name")]
+        public string LastName { get; set; }
+
+        [StringLength(50)]
+        [DisplayName("Task Event Background Color")]
+        public string TaskEventBackgroundColor { get; set; }
+
+        [StringLength(50)]
+        [DisplayName("Task Event Text Color")]
+        public string TaskEventTextColor { get; set; }
+
+        [DisplayName("Sales Commission Rate")]
+        public decimal? SalesCommissionRate { get; set; }
+
+        [DisplayName("Estimator Commission Rate")]
+        public decimal? EstimatorCommissionRate { get; set; }
+        public bool? Active { get; set; }
+        public bool? RestrictedAccess { get; set; }
+        public bool? EnableTaskNotifications { get; set; }
+        public bool? DailyJobsNotification { get; set; }
+        public bool? Driver { get; set; }
+        public bool? ShowWorkAreaFirst { get; set; }
+        public bool? ExcludeFromReports { get; set; }
+        public bool? AllowAddRemoveCreditHold { get; set; }
+
+    }
+
 
     public class UserPerformance
     {
